@@ -16,7 +16,6 @@ class Form extends Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
-      saveButton,
     } = this.props;
 
     return (
@@ -28,7 +27,6 @@ class Form extends Component {
           data-testid="name-input"
           value={ cardName }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <textarea
@@ -37,7 +35,6 @@ class Form extends Component {
           data-testid="description-input"
           value={ cardDescription }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <input
@@ -47,7 +44,6 @@ class Form extends Component {
           data-testid="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <input
@@ -57,7 +53,6 @@ class Form extends Component {
           data-testid="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <input
@@ -67,7 +62,6 @@ class Form extends Component {
           data-testid="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <input
@@ -77,7 +71,6 @@ class Form extends Component {
           data-testid="image-input"
           value={ cardImage }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         />
 
         <select
@@ -86,7 +79,6 @@ class Form extends Component {
           data-testid="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
-          onKeyUp={ saveButton }
         >
           <option>normal</option>
           <option>raro</option>
@@ -133,5 +125,4 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  saveButton: PropTypes.func.isRequired,
 };

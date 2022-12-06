@@ -17,12 +17,6 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
   };
 
-  onInputChange = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  };
-
   saveButton = () => {
     const {
       cardName,
@@ -38,17 +32,23 @@ class App extends React.Component {
     const two = Number(cardAttr2);
     const tres = Number(cardAttr3);
     const noventa = 90;
-    const duzentosEDez = 210;
+    const duzendoedez = 210;
 
-    if (cardName === '' && cardDescription === '' && cardImage === '' && cardRare === ''
-    && cardAttr1 > noventa && cardAttr1 < 0
-    && cardAttr2 > noventa && cardAttr2 < 0
-    && cardAttr3 > noventa && cardAttr3 < 0
-    && (one + two + tres) > duzentosEDez) {
-      this.setState({ isSaveButtonDisabled: true });
-    } else {
+    if (cardName !== '' && cardDescription !== '' && cardImage !== '' && cardRare !== ''
+    && cardAttr1 < noventa && cardAttr1 > 0
+    && cardAttr2 < noventa && cardAttr2 > 0
+    && cardAttr3 < noventa && cardAttr3 > 0
+    && (one + two + tres) < duzendoedez) {
       this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
     }
+  };
+
+  onInputChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value }, this.saveButton);
   };
 
   render() {
@@ -77,7 +77,6 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
-          saveButton={ this.saveButton }
         />
         <Card
           cardName={ cardName }
@@ -87,6 +86,7 @@ class App extends React.Component {
           cardAttr3={ cardAttr3 }
           cardImage={ cardImage }
           cardRare={ cardRare }
+          onInputChange={ this.onInputChange }
           cardTrunfo={ cardTrunfo }
         />
       </div>
