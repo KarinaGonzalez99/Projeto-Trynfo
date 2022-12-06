@@ -35,10 +35,10 @@ class App extends React.Component {
     const duzendoedez = 210;
 
     if (cardName !== '' && cardDescription !== '' && cardImage !== '' && cardRare !== ''
-    && cardAttr1 < noventa && cardAttr1 > 0
-    && cardAttr2 < noventa && cardAttr2 > 0
-    && cardAttr3 < noventa && cardAttr3 > 0
-    && (one + two + tres) < duzendoedez) {
+    && cardAttr1 <= noventa && cardAttr1 >= 0
+    && cardAttr2 <= noventa && cardAttr2 >= 0
+    && cardAttr3 <= noventa && cardAttr3 >= 0
+    && (one + two + tres) <= duzendoedez) {
       this.setState({ isSaveButtonDisabled: false });
     } else {
       this.setState({ isSaveButtonDisabled: true });
