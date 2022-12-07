@@ -85,7 +85,7 @@ class Form extends Component {
           <option>muito raro</option>
         </select>
 
-        { hasTrunfo === true ? 'Você ja tem um Super Trunfo em seu baralho' : (<input
+        { hasTrunfo === true ? 'Você já tem um Super Trunfo em seu baralho' : (<input
           name="cardTrunfo"
           id="cardTrunfo"
           type="checkbox"
